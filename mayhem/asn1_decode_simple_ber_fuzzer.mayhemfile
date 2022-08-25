@@ -1,0 +1,4 @@
+project: PROJECT
+target: asn1_decode_simple_ber_fuzzer
+cmds:
+- cmd: /out/asn1_decode_simple_ber_fuzzer
