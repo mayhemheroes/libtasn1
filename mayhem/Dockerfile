@@ -15,7 +15,8 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder
-RUN apt-get update && apt-get install -y make autoconf automake libtool bison
+RUN sed -i s/snapshot.ubuntu.com/archive.ubuntu.com/g /etc/apt/sources.list 2>/dev/null || true
+RUN apt-get update --fix-missing && apt-get install -y --fix-missing make autoconf automake libtool bison
 
 RUN git clone git://git.savannah.gnu.org/gnulib.git
 ENV GNULIB_TOOL=$SRC/gnulib/gnulib-tool
